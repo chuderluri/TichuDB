@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TichuDb/TichuDb.csproj" />
+  <Project Path="TichuDbTest/TichuDbTest.csproj" />
+</Solution>
