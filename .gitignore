@@ -1,1 +1,6 @@
 /.idea/.idea.TichuDB/.idea/.name
+/.idea/.idea.TichuDB/.idea/encodings.xml
+/.idea/.idea.TichuDB/.idea/indexLayout.xml
+/.idea/.idea.TichuDB/.idea/vcs.xml
+*/bin/**
+*/obj/**
