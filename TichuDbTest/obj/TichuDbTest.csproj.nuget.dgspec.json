@@ -13,6 +13,7 @@
         "packagesPath": "/home/fabian/.nuget/packages/",
         "outputPath": "/home/fabian/git/chuderluri/tichuDB/TichuDbTest/obj/",
         "projectStyle": "PackageReference",
+        "centralPackageVersionsManagementEnabled": true,
         "configFilePaths": [
           "/home/fabian/.nuget/NuGet/NuGet.Config"
         ],

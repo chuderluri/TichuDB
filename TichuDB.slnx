@@ -1,4 +1,9 @@
 <Solution>
+  <Folder Name="/SolutionItems/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="README.md" />
+  </Folder>
   <Project Path="TichuDb/TichuDb.csproj" />
   <Project Path="TichuDbTest/TichuDbTest.csproj" />
 </Solution>

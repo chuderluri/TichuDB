@@ -19,6 +19,7 @@
       "packagesPath": "/home/fabian/.nuget/packages/",
       "outputPath": "/home/fabian/git/chuderluri/tichuDB/TichuDb/obj/",
       "projectStyle": "PackageReference",
+      "centralPackageVersionsManagementEnabled": true,
       "configFilePaths": [
         "/home/fabian/.nuget/NuGet/NuGet.Config"
       ],
