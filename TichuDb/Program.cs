@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Builder;
+
 namespace TichuDb;
 
-public class Program
+public static class Program
 {
     public static void Main(string[] args)
     {

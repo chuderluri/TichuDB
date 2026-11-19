@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TichuDb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af488e481ea303127bc9464f75ffd828da5f86bf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ce8b0b6dfae8c079f167cbe74d116ff90e9ddce")]
 [assembly: System.Reflection.AssemblyProductAttribute("TichuDb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TichuDb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -52,6 +52,13 @@
       "net10.0": {
         "framework": "net10.0",
         "targetAlias": "net10.0",
+        "centralPackageVersions": {
+          "coverlet.collector": "6.0.4",
+          "Microsoft.NET.Test.Sdk": "17.14.0",
+          "NUnit": "4.3.2",
+          "NUnit.Analyzers": "4.7.0",
+          "NUnit3TestAdapter": "5.0.0"
+        },
         "imports": [
           "net461",
           "net462",

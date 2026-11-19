@@ -1,19 +1,25 @@
 {
   "version": 2,
-  "dgSpecHash": "lD4nRJoRfdk=",
-  "success": false,
+  "dgSpecHash": "iDCxxeXn0qI=",
+  "success": true,
   "projectFilePath": "/home/fabian/git/chuderluri/tichuDB/TichuDbTest/TichuDbTest.csproj",
   "expectedPackageFiles": [
+    "/home/fabian/.nuget/packages/coverlet.collector/6.0.4/coverlet.collector.6.0.4.nupkg.sha512",
+    "/home/fabian/.nuget/packages/microsoft.applicationinsights/2.22.0/microsoft.applicationinsights.2.22.0.nupkg.sha512",
+    "/home/fabian/.nuget/packages/microsoft.codecoverage/17.14.0/microsoft.codecoverage.17.14.0.nupkg.sha512",
+    "/home/fabian/.nuget/packages/microsoft.net.test.sdk/17.14.0/microsoft.net.test.sdk.17.14.0.nupkg.sha512",
+    "/home/fabian/.nuget/packages/microsoft.testing.extensions.telemetry/1.5.3/microsoft.testing.extensions.telemetry.1.5.3.nupkg.sha512",
+    "/home/fabian/.nuget/packages/microsoft.testing.extensions.trxreport.abstractions/1.5.3/microsoft.testing.extensions.trxreport.abstractions.1.5.3.nupkg.sha512",
+    "/home/fabian/.nuget/packages/microsoft.testing.extensions.vstestbridge/1.5.3/microsoft.testing.extensions.vstestbridge.1.5.3.nupkg.sha512",
+    "/home/fabian/.nuget/packages/microsoft.testing.platform/1.5.3/microsoft.testing.platform.1.5.3.nupkg.sha512",
+    "/home/fabian/.nuget/packages/microsoft.testing.platform.msbuild/1.5.3/microsoft.testing.platform.msbuild.1.5.3.nupkg.sha512",
+    "/home/fabian/.nuget/packages/microsoft.testplatform.objectmodel/17.14.0/microsoft.testplatform.objectmodel.17.14.0.nupkg.sha512",
+    "/home/fabian/.nuget/packages/microsoft.testplatform.testhost/17.14.0/microsoft.testplatform.testhost.17.14.0.nupkg.sha512",
+    "/home/fabian/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/home/fabian/.nuget/packages/nunit/4.3.2/nunit.4.3.2.nupkg.sha512",
+    "/home/fabian/.nuget/packages/nunit.analyzers/4.7.0/nunit.analyzers.4.7.0.nupkg.sha512",
+    "/home/fabian/.nuget/packages/nunit3testadapter/5.0.0/nunit3testadapter.5.0.0.nupkg.sha512",
     "/home/fabian/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.14/microsoft.aspnetcore.app.ref.10.0.14.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1008",
-      "level": "Error",
-      "message": "The following PackageReference items cannot define a value for Version: coverlet.collector, Microsoft.NET.Test.Sdk, NUnit, NUnit.Analyzers, NUnit3TestAdapter. Projects using Central Package Management must define a Version value on a PackageVersion item. For more information, visit https://aka.ms/nuget/cpm/gettingstarted",
-      "projectPath": "/home/fabian/git/chuderluri/tichuDB/TichuDbTest/TichuDbTest.csproj",
-      "filePath": "/home/fabian/git/chuderluri/tichuDB/TichuDbTest/TichuDbTest.csproj",
-      "targetGraphs": []
-    }
-  ]
+  "logs": []
 }
