@@ -1,0 +1,90 @@
+[*]
+charset = utf-8
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+
+# ReSharper properties
+resharper_align_linq_query = true
+resharper_braces_redundant = true
+resharper_csharp_keep_blank_lines_in_code = 1
+resharper_csharp_keep_blank_lines_in_declarations = 1
+resharper_csharp_wrap_after_declaration_lpar = true
+resharper_csharp_wrap_after_invocation_lpar = true
+resharper_csharp_wrap_arguments_style = chop_if_long
+resharper_csharp_wrap_before_declaration_rpar = true
+resharper_csharp_wrap_before_invocation_rpar = true
+resharper_csharp_wrap_extends_list_style = chop_if_long
+resharper_csharp_wrap_parameters_style = chop_if_long
+resharper_keep_existing_declaration_block_arrangement = true
+resharper_keep_existing_embedded_block_arrangement = true
+resharper_place_attribute_on_same_line = false
+resharper_wrap_array_initializer_style = chop_if_long
+
+[*.cs]
+csharp_space_after_cast = true
+max_line_length = 160
+dotnet_diagnostic.IDE0005.severity = warning # Remove unnecessary using directives 
+dotnet_diagnostic.IDE0130.severity = warning # Namespace does not match folder structure (IDE0130)
+
+# SonarQube
+dotnet_diagnostic.S3260.severity = none # Private record classes which are not derived in the current assembly should be marked as 'sealed'. 
+dotnet_diagnostic.S1192.severity = none # Define a constant instead of using this literal ''
+dotnet_diagnostic.S107.severity = none # Methods should not have too many parameters
+
+[*/*Startup*.cs]
+dotnet_diagnostic.S112.severity = none # General or reserved exceptions should never be thrown
+dotnet_diagnostic.S1144.severity = none # Unused private types or members should be removed
+dotnet_diagnostic.S1172.severity = none # Unused method parameters should be removed
+dotnet_diagnostic.S1186.severity = none # Methods should not be empty
+
+[*/Program.cs]
+dotnet_diagnostic.S112.severity = none # General or reserved exceptions should never be thrown
+
+[*/GlobalUsings.cs]
+dotnet_diagnostic.IDE0005.severity = default # Remove unnecessary using directives 
+
+[*.csproj]
+indent_size = 2
+max_line_length = off
+
+[*.slnx]
+indent_size = 2
+max_line_length = off
+
+[{*.jhm, *.cscfg, *.jrxml, *.rng, *.wadcfgx, *.axml, *.wsdl, *.webref, *.fxml, *.myapp, *.svcmap, *.xslt, *.ant, *.xul, *.xsl, *.xsd, *.jnlp, *.csdef, *.disco, *.tld, *.xml}]
+indent_size = 2
+max_line_length = off
+
+[*.config]
+indent_size = 2
+max_line_length = off
+
+[*.resx]
+indent_size = 2
+max_line_length = off
+
+[{*.targets, *.overridetasks, *.tasks}]
+indent_size = 2
+max_line_length = off
+
+[*.props]
+indent_size = 2
+max_line_length = off
+
+[{*.json,*.jsonc,*.json5}]
+indent_size = 2
+max_line_length = off
+
+[*.yml]
+indent_size = 2
+max_line_length = off
+
+[*.txt]
+trim_trailing_whitespace = false
+insert_final_newline = false
+
+[*/Migrations/*.cs]
+generated_code = true
