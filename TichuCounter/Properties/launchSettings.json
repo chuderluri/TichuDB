@@ -18,6 +18,27 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Migration": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:7136;http://localhost:5136",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "DatabaseMigration"
+      }
+    },
+    "Migration Verify": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:7136;http://localhost:5136",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "DatabaseMigration"
+      },
+      "commandLineArgs": "--verify-only"
     }
   }
 }
