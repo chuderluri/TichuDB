@@ -24,7 +24,6 @@
       "dotnetRunMessages": true,
       "launchBrowser": false,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7136;http://localhost:5136",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "DatabaseMigration"
       }
@@ -34,7 +33,6 @@
       "dotnetRunMessages": true,
       "launchBrowser": false,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7136;http://localhost:5136",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "DatabaseMigration"
       },
