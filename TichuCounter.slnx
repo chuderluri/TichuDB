@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/SolutionItems/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="dotnet-tools.json" />
+    <File Path="global.json" />
+    <File Path="README.md" />
+    <File Path="start-dev-db.sh" />
+    <File Path="stop-dev-db.sh" />
+  </Folder>
+  <Project Path="TichuCounterTest\TichuCounterTest.csproj" />
+  <Project Path="TichuCounter\TichuCounter.csproj" />
+</Solution>
