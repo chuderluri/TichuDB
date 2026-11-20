@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Using Include="NUnit.Framework"/>
+    <ProjectReference Include="..\TichuDb\TichuDb.csproj" />
   </ItemGroup>
 
 </Project>
