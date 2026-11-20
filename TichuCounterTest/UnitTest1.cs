@@ -1,4 +1,4 @@
-﻿namespace TichuDbTest;
+﻿namespace TichuCounterTest;
 
 public class Tests
 {

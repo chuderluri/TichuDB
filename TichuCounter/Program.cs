@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 
-namespace TichuDb;
+namespace TichuCounter;
 
 public static class Program
 {

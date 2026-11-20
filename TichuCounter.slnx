@@ -10,6 +10,6 @@
     <File Path="start-dev-db.sh" />
     <File Path="stop-dev-db.sh" />
   </Folder>
-  <Project Path="TichuDb/TichuDb.csproj" />
-  <Project Path="TichuDbTest/TichuDbTest.csproj" />
+  <Project Path="TichuCounterTest\TichuCounterTest.csproj" />
+  <Project Path="TichuCounter\TichuCounter.csproj" />
 </Solution>

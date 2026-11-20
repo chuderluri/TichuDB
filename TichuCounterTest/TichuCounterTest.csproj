@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TichuDb\TichuDb.csproj" />
+    <ProjectReference Include="..\TichuCounter\TichuCounter.csproj" />
   </ItemGroup>
 
 </Project>
