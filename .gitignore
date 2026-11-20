@@ -1,8 +1,9 @@
-/.idea/.idea.TichuDB/.idea/.name
-/.idea/.idea.TichuDB/.idea/encodings.xml
-/.idea/.idea.TichuDB/.idea/indexLayout.xml
-/.idea/.idea.TichuDB/.idea/vcs.xml
+/.idea/.idea.TichuCounter/.idea/.name
+/.idea/.idea.TichuCounter/.idea/encodings.xml
+/.idea/.idea.TichuCounter/.idea/indexLayout.xml
+/.idea/.idea.TichuCounter/.idea/vcs.xml
 bin/
 obj/
 */bin/**
 */obj/**
+/.idea/.idea.TichuDB/.idea/workspace.xml
