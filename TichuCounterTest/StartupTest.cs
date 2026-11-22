@@ -18,7 +18,6 @@ public class StartupTest
         var configurationBuilder = new ConfigurationBuilder();
         configurationBuilder.AddInMemoryCollection(
             [
-                new KeyValuePair<string, string?>("ServiceBus:Disabled", "true"),
                 new KeyValuePair<string, string?>("ConnectionStrings:DefaultConnection", "server=localhost"),
             ]
         );
