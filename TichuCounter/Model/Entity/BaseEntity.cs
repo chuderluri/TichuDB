@@ -27,5 +27,5 @@ public class BaseEntity
 
     [ConcurrencyCheck]
     [Column("row_version")]
-    public long RowVersion { get; set; }
+    public int RowVersion { get; set; }
 }
