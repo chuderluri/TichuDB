@@ -10,6 +10,6 @@ public static class CommonStartupHelpers
     public static void ConfigureDatabase(IServiceCollection serviceCollection, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection");
-        serviceCollection.AddDbContext<TichuCounterDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+        serviceCollection.AddDbContext<TichuCounterDbContext>(options => options.UseMySql(connectionString, ServerVersion.Parse("8.4.13")));
     }
 }
