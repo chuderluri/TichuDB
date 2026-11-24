@@ -10,6 +10,10 @@
     <File Path="start-dev-db.sh" />
     <File Path="stop-dev-db.sh" />
   </Folder>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path=".github\workflows\dotnet.yml" />
+  </Folder>
   <Project Path="TichuCounterTest\TichuCounterTest.csproj" />
   <Project Path="TichuCounter\TichuCounter.csproj" />
 </Solution>
