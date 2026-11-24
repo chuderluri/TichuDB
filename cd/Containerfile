@@ -1,0 +1,25 @@
+# Stage 1: Preparation (Standard image with shell/tools)
+FROM mcr.microsoft.com/dotnet/sdk:11.0 AS build
+USER root
+
+RUN mkdir -p /var/log/tichu-counter /mnt/configs /app
+
+WORKDIR /app
+
+RUN ln -s /mnt/configs/appsettings.json appsettings.json
+
+RUN chown -R app:app /var/log/tichu-counter /app /mnt/configs
+
+# Stage 2: Final (Minimal image)
+FROM mcr.microsoft.com/dotnet/aspnet:11.0 AS final
+WORKDIR /app
+
+COPY --from=build /app /app
+COPY --from=build /mnt/configs /mnt/configs
+COPY --from=build /var/log/tichu-counter /var/log/tichu-counter
+
+COPY publish .
+
+EXPOSE 8080
+USER app
+ENTRYPOINT ["dotnet", "TichuCounter.dll"]

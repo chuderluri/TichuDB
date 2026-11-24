@@ -24,5 +24,9 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore --configuration Release
+    - name: Publish
+      run: dotnet publish --no-build --configuration Release -o publish
     - name: Test
       run: dotnet test --no-build --verbosity normal --configuration Release
+    - name: Build Container Image
+      run: docker build . --tag tichu-counter:ci -f cd/Containerfile

@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/cd/">
+    <File Path="cd\Containerfile" />
+  </Folder>
   <Folder Name="/SolutionItems/">
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
