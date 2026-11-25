@@ -16,7 +16,7 @@ partial class TichuCounterDbContextModelSnapshot : ModelSnapshot
     // If you encounter a merge conflict in the line below, it means you need to
     // discard one of the migration branches and recreate its migrations on top of
     // the other branch. See https://aka.ms/efcore-docs-migrations-conflicts for more info.
-    public override string LastMigrationId => "20261125205218_AddSeatTable";
+    public override string LastMigrationId => "20261125210645_AddPlayerTable";
 
     protected override void BuildModel(ModelBuilder modelBuilder)
     {
@@ -83,6 +83,48 @@ partial class TichuCounterDbContextModelSnapshot : ModelSnapshot
                 b.HasKey("Id");
 
                 b.ToTable("game");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.PlayerEntity", b =>
+            {
+                b.Property<Guid>("Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("id");
+
+                b.Property<DateTimeOffset>("Created")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("created");
+
+                b.Property<string>("CreatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("created_by");
+
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("name");
+
+                b.Property<int>("RowVersion")
+                    .IsConcurrencyToken()
+                    .HasColumnType("int")
+                    .HasColumnName("row_version");
+
+                b.Property<DateTimeOffset>("Updated")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("updated");
+
+                b.Property<string>("UpdatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("updated_by");
+
+                b.HasKey("Id");
+
+                b.ToTable("player");
             });
 
         modelBuilder.Entity("TichuCounter.Model.Entity.RoundEntity", b =>
@@ -188,6 +230,10 @@ partial class TichuCounterDbContextModelSnapshot : ModelSnapshot
                     .HasColumnType("varchar(255)")
                     .HasColumnName("created_by");
 
+                b.Property<Guid>("PlayerId")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("player_id");
+
                 b.Property<int>("RowVersion")
                     .IsConcurrencyToken()
                     .HasColumnType("int")
@@ -209,6 +255,8 @@ partial class TichuCounterDbContextModelSnapshot : ModelSnapshot
                     .HasColumnName("updated_by");
 
                 b.HasKey("Id");
+
+                b.HasIndex("PlayerId");
 
                 b.ToTable("seat");
             });
@@ -254,6 +302,17 @@ partial class TichuCounterDbContextModelSnapshot : ModelSnapshot
                 b.Navigation("TeamBSeat1");
 
                 b.Navigation("TeamBSeat2");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.SeatEntity", b =>
+            {
+                b.HasOne("TichuCounter.Model.Entity.PlayerEntity", "Player")
+                    .WithMany()
+                    .HasForeignKey("PlayerId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.Navigation("Player");
             });
 
         modelBuilder.Entity("TichuCounter.Model.Entity.GameEntity", b =>
