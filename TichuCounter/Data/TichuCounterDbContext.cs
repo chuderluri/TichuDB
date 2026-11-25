@@ -20,6 +20,27 @@ public class TichuCounterDbContext : DbContext
     }
 
     public DbSet<GameEntity> Games => Set<GameEntity>();
+    public DbSet<RoundEntity> Rounds => Set<RoundEntity>();
+    public DbSet<SeatEntity> Seats => Set<SeatEntity>();
+    public DbSet<PlayerEntity> Players => Set<PlayerEntity>();
+    public DbSet<GroupEntity> Groups => Set<GroupEntity>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<PlayerEntity>()
+            .HasMany(player => player.Groups)
+            .WithMany(group => group.Players)
+            .UsingEntity<PlayerInGroupEntity>(
+                join => join
+                    .HasOne(playerInGroup => playerInGroup.Group)
+                    .WithMany(group => group.PlayerInGroups)
+                    .HasForeignKey(playerInGroup => playerInGroup.GroupId),
+                join => join
+                    .HasOne(playerInGroup => playerInGroup.Player)
+                    .WithMany(player => player.PlayerInGroups)
+                    .HasForeignKey(playerInGroup => playerInGroup.PlayerId)
+            );
+    }
 
     public override int SaveChanges()
     {
