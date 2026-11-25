@@ -21,4 +21,6 @@ public class GameEntity : BaseEntity
 
     [Column("finished_at", TypeName = "datetime")]
     public DateTimeOffset? FinishedAt { get; set; }
+
+    public List<RoundEntity>? Rounds { get; set; }
 }

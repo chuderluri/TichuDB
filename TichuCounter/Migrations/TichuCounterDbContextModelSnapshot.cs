@@ -16,7 +16,7 @@ partial class TichuCounterDbContextModelSnapshot : ModelSnapshot
     // If you encounter a merge conflict in the line below, it means you need to
     // discard one of the migration branches and recreate its migrations on top of
     // the other branch. See https://aka.ms/efcore-docs-migrations-conflicts for more info.
-    public override string LastMigrationId => "20261122120150_AddGameTable";
+    public override string LastMigrationId => "20261125212955_AddGroupTable";
 
     protected override void BuildModel(ModelBuilder modelBuilder)
     {
@@ -83,6 +83,360 @@ partial class TichuCounterDbContextModelSnapshot : ModelSnapshot
                 b.HasKey("Id");
 
                 b.ToTable("game");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.GroupEntity", b =>
+            {
+                b.Property<Guid>("Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("id");
+
+                b.Property<DateTimeOffset>("Created")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("created");
+
+                b.Property<string>("CreatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("created_by");
+
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("name");
+
+                b.Property<int>("RowVersion")
+                    .IsConcurrencyToken()
+                    .HasColumnType("int")
+                    .HasColumnName("row_version");
+
+                b.Property<DateTimeOffset>("Updated")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("updated");
+
+                b.Property<string>("UpdatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("updated_by");
+
+                b.HasKey("Id");
+
+                b.ToTable("group");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.PlayerEntity", b =>
+            {
+                b.Property<Guid>("Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("id");
+
+                b.Property<DateTimeOffset>("Created")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("created");
+
+                b.Property<string>("CreatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("created_by");
+
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("name");
+
+                b.Property<int>("RowVersion")
+                    .IsConcurrencyToken()
+                    .HasColumnType("int")
+                    .HasColumnName("row_version");
+
+                b.Property<DateTimeOffset>("Updated")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("updated");
+
+                b.Property<string>("UpdatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("updated_by");
+
+                b.HasKey("Id");
+
+                b.ToTable("player");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.PlayerInGroupEntity", b =>
+            {
+                b.Property<Guid>("Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("id");
+
+                b.Property<DateTimeOffset>("Created")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("created");
+
+                b.Property<string>("CreatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("created_by");
+
+                b.Property<Guid>("GroupId")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("group_id");
+
+                b.Property<Guid>("PlayerId")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("player_id");
+
+                b.Property<int>("RowVersion")
+                    .IsConcurrencyToken()
+                    .HasColumnType("int")
+                    .HasColumnName("row_version");
+
+                b.Property<DateTimeOffset>("Updated")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("updated");
+
+                b.Property<string>("UpdatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("updated_by");
+
+                b.HasKey("Id");
+
+                b.HasIndex("GroupId");
+
+                b.HasIndex("PlayerId");
+
+                b.ToTable("player_in_group");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.RoundEntity", b =>
+            {
+                b.Property<Guid>("Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("id");
+
+                b.Property<DateTimeOffset>("Created")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("created");
+
+                b.Property<string>("CreatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("created_by");
+
+                b.Property<string>("DoubleWinResult")
+                    .IsRequired()
+                    .HasColumnType("VARCHAR(5)")
+                    .HasColumnName("double_win_result");
+
+                b.Property<Guid>("GameId")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("game_id");
+
+                b.Property<int>("PointsTeamA")
+                    .HasColumnType("int")
+                    .HasColumnName("pints_team_a");
+
+                b.Property<int>("PointsTeamB")
+                    .HasColumnType("int")
+                    .HasColumnName("pints_team_b");
+
+                b.Property<int>("RoundNumber")
+                    .HasColumnType("int")
+                    .HasColumnName("round_number");
+
+                b.Property<int>("RowVersion")
+                    .IsConcurrencyToken()
+                    .HasColumnType("int")
+                    .HasColumnName("row_version");
+
+                b.Property<Guid>("TeamASeat1Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("team_a_seat_1_id");
+
+                b.Property<Guid>("TeamASeat2Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("team_a_seat_2_id");
+
+                b.Property<Guid>("TeamBSeat1Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("team_b_seat_1_id");
+
+                b.Property<Guid>("TeamBSeat2Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("team_b_seat_2_id");
+
+                b.Property<DateTimeOffset>("Timestamp")
+                    .HasColumnType("datetime")
+                    .HasColumnName("timestamp");
+
+                b.Property<DateTimeOffset>("Updated")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("updated");
+
+                b.Property<string>("UpdatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("updated_by");
+
+                b.HasKey("Id");
+
+                b.HasIndex("GameId");
+
+                b.HasIndex("TeamASeat1Id");
+
+                b.HasIndex("TeamASeat2Id");
+
+                b.HasIndex("TeamBSeat1Id");
+
+                b.HasIndex("TeamBSeat2Id");
+
+                b.ToTable("round");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.SeatEntity", b =>
+            {
+                b.Property<Guid>("Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("id");
+
+                b.Property<DateTimeOffset>("Created")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("created");
+
+                b.Property<string>("CreatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("created_by");
+
+                b.Property<Guid>("PlayerId")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("player_id");
+
+                b.Property<int>("RowVersion")
+                    .IsConcurrencyToken()
+                    .HasColumnType("int")
+                    .HasColumnName("row_version");
+
+                b.Property<string>("TichuResult")
+                    .IsRequired()
+                    .HasColumnType("VARCHAR(19)")
+                    .HasColumnName("tichu_result");
+
+                b.Property<DateTimeOffset>("Updated")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("updated");
+
+                b.Property<string>("UpdatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("updated_by");
+
+                b.HasKey("Id");
+
+                b.HasIndex("PlayerId");
+
+                b.ToTable("seat");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.PlayerInGroupEntity", b =>
+            {
+                b.HasOne("TichuCounter.Model.Entity.GroupEntity", "Group")
+                    .WithMany("PlayerInGroups")
+                    .HasForeignKey("GroupId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.HasOne("TichuCounter.Model.Entity.PlayerEntity", "Player")
+                    .WithMany("PlayerInGroups")
+                    .HasForeignKey("PlayerId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.Navigation("Group");
+
+                b.Navigation("Player");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.RoundEntity", b =>
+            {
+                b.HasOne("TichuCounter.Model.Entity.GameEntity", "GameEntity")
+                    .WithMany("Rounds")
+                    .HasForeignKey("GameId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.HasOne("TichuCounter.Model.Entity.SeatEntity", "TeamASeat1")
+                    .WithMany()
+                    .HasForeignKey("TeamASeat1Id")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.HasOne("TichuCounter.Model.Entity.SeatEntity", "TeamASeat2")
+                    .WithMany()
+                    .HasForeignKey("TeamASeat2Id")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.HasOne("TichuCounter.Model.Entity.SeatEntity", "TeamBSeat1")
+                    .WithMany()
+                    .HasForeignKey("TeamBSeat1Id")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.HasOne("TichuCounter.Model.Entity.SeatEntity", "TeamBSeat2")
+                    .WithMany()
+                    .HasForeignKey("TeamBSeat2Id")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.Navigation("GameEntity");
+
+                b.Navigation("TeamASeat1");
+
+                b.Navigation("TeamASeat2");
+
+                b.Navigation("TeamBSeat1");
+
+                b.Navigation("TeamBSeat2");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.SeatEntity", b =>
+            {
+                b.HasOne("TichuCounter.Model.Entity.PlayerEntity", "Player")
+                    .WithMany()
+                    .HasForeignKey("PlayerId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.Navigation("Player");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.GameEntity", b =>
+            {
+                b.Navigation("Rounds");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.GroupEntity", b =>
+            {
+                b.Navigation("PlayerInGroups");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.PlayerEntity", b =>
+            {
+                b.Navigation("PlayerInGroups");
             });
 #pragma warning restore 612, 618
     }
