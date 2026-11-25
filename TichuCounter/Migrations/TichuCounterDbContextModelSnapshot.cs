@@ -16,7 +16,7 @@ partial class TichuCounterDbContextModelSnapshot : ModelSnapshot
     // If you encounter a merge conflict in the line below, it means you need to
     // discard one of the migration branches and recreate its migrations on top of
     // the other branch. See https://aka.ms/efcore-docs-migrations-conflicts for more info.
-    public override string LastMigrationId => "20261125203532_AddRoundTable";
+    public override string LastMigrationId => "20261125205218_AddSeatTable";
 
     protected override void BuildModel(ModelBuilder modelBuilder)
     {
@@ -127,6 +127,22 @@ partial class TichuCounterDbContextModelSnapshot : ModelSnapshot
                     .HasColumnType("int")
                     .HasColumnName("row_version");
 
+                b.Property<Guid>("TeamASeat1Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("team_a_seat_1_id");
+
+                b.Property<Guid>("TeamASeat2Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("team_a_seat_2_id");
+
+                b.Property<Guid>("TeamBSeat1Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("team_b_seat_1_id");
+
+                b.Property<Guid>("TeamBSeat2Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("team_b_seat_2_id");
+
                 b.Property<DateTimeOffset>("Timestamp")
                     .HasColumnType("datetime")
                     .HasColumnName("timestamp");
@@ -145,7 +161,56 @@ partial class TichuCounterDbContextModelSnapshot : ModelSnapshot
 
                 b.HasIndex("GameId");
 
+                b.HasIndex("TeamASeat1Id");
+
+                b.HasIndex("TeamASeat2Id");
+
+                b.HasIndex("TeamBSeat1Id");
+
+                b.HasIndex("TeamBSeat2Id");
+
                 b.ToTable("round");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.SeatEntity", b =>
+            {
+                b.Property<Guid>("Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("id");
+
+                b.Property<DateTimeOffset>("Created")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("created");
+
+                b.Property<string>("CreatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("created_by");
+
+                b.Property<int>("RowVersion")
+                    .IsConcurrencyToken()
+                    .HasColumnType("int")
+                    .HasColumnName("row_version");
+
+                b.Property<string>("TichuResult")
+                    .IsRequired()
+                    .HasColumnType("VARCHAR(19)")
+                    .HasColumnName("tichu_result");
+
+                b.Property<DateTimeOffset>("Updated")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("updated");
+
+                b.Property<string>("UpdatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("updated_by");
+
+                b.HasKey("Id");
+
+                b.ToTable("seat");
             });
 
         modelBuilder.Entity("TichuCounter.Model.Entity.RoundEntity", b =>
@@ -156,7 +221,39 @@ partial class TichuCounterDbContextModelSnapshot : ModelSnapshot
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired();
 
+                b.HasOne("TichuCounter.Model.Entity.SeatEntity", "TeamASeat1")
+                    .WithMany()
+                    .HasForeignKey("TeamASeat1Id")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.HasOne("TichuCounter.Model.Entity.SeatEntity", "TeamASeat2")
+                    .WithMany()
+                    .HasForeignKey("TeamASeat2Id")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.HasOne("TichuCounter.Model.Entity.SeatEntity", "TeamBSeat1")
+                    .WithMany()
+                    .HasForeignKey("TeamBSeat1Id")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.HasOne("TichuCounter.Model.Entity.SeatEntity", "TeamBSeat2")
+                    .WithMany()
+                    .HasForeignKey("TeamBSeat2Id")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
                 b.Navigation("GameEntity");
+
+                b.Navigation("TeamASeat1");
+
+                b.Navigation("TeamASeat2");
+
+                b.Navigation("TeamBSeat1");
+
+                b.Navigation("TeamBSeat2");
             });
 
         modelBuilder.Entity("TichuCounter.Model.Entity.GameEntity", b =>
