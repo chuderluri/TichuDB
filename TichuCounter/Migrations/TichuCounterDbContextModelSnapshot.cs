@@ -16,7 +16,7 @@ partial class TichuCounterDbContextModelSnapshot : ModelSnapshot
     // If you encounter a merge conflict in the line below, it means you need to
     // discard one of the migration branches and recreate its migrations on top of
     // the other branch. See https://aka.ms/efcore-docs-migrations-conflicts for more info.
-    public override string LastMigrationId => "20261122120150_AddGameTable";
+    public override string LastMigrationId => "20261125203532_AddRoundTable";
 
     protected override void BuildModel(ModelBuilder modelBuilder)
     {
@@ -83,6 +83,85 @@ partial class TichuCounterDbContextModelSnapshot : ModelSnapshot
                 b.HasKey("Id");
 
                 b.ToTable("game");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.RoundEntity", b =>
+            {
+                b.Property<Guid>("Id")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("id");
+
+                b.Property<DateTimeOffset>("Created")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("created");
+
+                b.Property<string>("CreatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("created_by");
+
+                b.Property<string>("DoubleWinResult")
+                    .IsRequired()
+                    .HasColumnType("VARCHAR(5)")
+                    .HasColumnName("double_win_result");
+
+                b.Property<Guid>("GameId")
+                    .HasColumnType("char(36)")
+                    .HasColumnName("game_id");
+
+                b.Property<int>("PointsTeamA")
+                    .HasColumnType("int")
+                    .HasColumnName("pints_team_a");
+
+                b.Property<int>("PointsTeamB")
+                    .HasColumnType("int")
+                    .HasColumnName("pints_team_b");
+
+                b.Property<int>("RoundNumber")
+                    .HasColumnType("int")
+                    .HasColumnName("round_number");
+
+                b.Property<int>("RowVersion")
+                    .IsConcurrencyToken()
+                    .HasColumnType("int")
+                    .HasColumnName("row_version");
+
+                b.Property<DateTimeOffset>("Timestamp")
+                    .HasColumnType("datetime")
+                    .HasColumnName("timestamp");
+
+                b.Property<DateTimeOffset>("Updated")
+                    .HasColumnType("datetime(6)")
+                    .HasColumnName("updated");
+
+                b.Property<string>("UpdatedBy")
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnType("varchar(255)")
+                    .HasColumnName("updated_by");
+
+                b.HasKey("Id");
+
+                b.HasIndex("GameId");
+
+                b.ToTable("round");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.RoundEntity", b =>
+            {
+                b.HasOne("TichuCounter.Model.Entity.GameEntity", "GameEntity")
+                    .WithMany("Rounds")
+                    .HasForeignKey("GameId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.Navigation("GameEntity");
+            });
+
+        modelBuilder.Entity("TichuCounter.Model.Entity.GameEntity", b =>
+            {
+                b.Navigation("Rounds");
             });
 #pragma warning restore 612, 618
     }
